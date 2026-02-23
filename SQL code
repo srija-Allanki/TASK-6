@@ -1,0 +1,10 @@
+SELECT
+    YEAR(CONVERT(date, Order_Date, 105)) AS year,
+    MONTH(CONVERT(date, Order_Date, 105)) AS month,
+    SUM(Total_Sales_INR) AS total_revenue,
+    COUNT(DISTINCT Order_ID) AS order_volume
+FROM flipkart_sales_data
+GROUP BY
+    YEAR(CONVERT(date, Order_Date, 105)),
+    MONTH(CONVERT(date, Order_Date, 105))
+ORDER BY year, month;
